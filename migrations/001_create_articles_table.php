@@ -10,3 +10,4 @@ $query = "CREATE TABLE articles(
 
 $execute = $mysqli->prepare($query);
 $execute->execute();
+?>

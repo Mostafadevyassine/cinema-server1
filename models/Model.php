@@ -33,14 +33,36 @@ abstract class Model{
 
         return $objects; //we are returning an array of objects!!!!!!!!
     }
+    public static function create(mysqli $mysqli, array $user_info) {
+        $sql = "INSERT INTO users (email, password, full_name, date_of_birth, favorite_genres) 
+                VALUES (?, ?, ?, ?, ?)";
+    
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param(
+            "sssss", 
+            $user_info['email'], 
+            $user_info['password'], 
+            $user_info['full_name'], 
+            $user_info['date_of_birth'], 
+            $user_info['favorite_genres']
+        );
+    
+        $stmt->execute();
+        return $mysqli->insert_id; // return the new user ID
+    }
 
-    //you have to continue with the same mindset
+   
+}
+
+
+
+
+
+
+ //you have to continue with the same mindset
     //Find a solution for sending the $mysqli everytime... 
     //Implement the following: 
     //1- update() -> non-static function 
     //2- create() -> static function
     //3- delete() -> non-static function 
-}
-
-
 
