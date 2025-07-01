@@ -9,7 +9,7 @@ $query = "CREATE TABLE seat_bookings (
     FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE CASCADE,
     FOREIGN KEY (seat_id) REFERENCES seats(id) ON DELETE CASCADE,
     FOREIGN KEY (showtime_id) REFERENCES showtimes(id) ON DELETE CASCADE,
-    UNIQUE (seat_id, showtime_id) -- ensures the same seat can't be booked twice for same showtime
+    UNIQUE (seat_id, showtime_id) 
 )";
 
 $execute = $mysqli->prepare($query);
