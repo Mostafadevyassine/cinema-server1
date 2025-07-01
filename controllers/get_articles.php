@@ -3,8 +3,7 @@ require("../models/Article.php");
 require("../models/User.php");
 require("../connection/connection.php");
 
-$response = [];
-$response["status"] = 200;
+
 
 if(!isset($_GET["id"])){
     $articles = Article::all($mysqli); //reminder: this is an array of OBJECTS!!!!
